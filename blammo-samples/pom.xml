@@ -2,12 +2,12 @@
   <parent>
     <artifactId>root</artifactId>
     <groupId>com.agilejava.blammo</groupId>
-    <version>0.1-RC1</version>
+    <version>0.2-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>blammo-samples</artifactId>
   <name>Blammo Samples</name>
-  <version>0.1-RC1</version>
+  <version>0.2-SNAPSHOT</version>
   <description>Some samples, showing the relevance of
   Blammo.</description>
   <build>
@@ -15,7 +15,7 @@
       <plugin>
         <groupId>com.agilejava.blammo</groupId>
         <artifactId>blammo-maven-plugin</artifactId>
-        <version>0.1-RC1</version>
+        <version>0.2-SNAPSHOT</version>
         <executions>
           <execution>
             <goals>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.agilejava.blammo</groupId>
       <artifactId>blammo-core</artifactId>
-      <version>0.1-RC1</version>
+      <version>0.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>easymock</groupId>
@@ -50,7 +50,7 @@
       <plugin>
         <groupId>com.agilejava.blammo</groupId>
         <artifactId>blammo-maven-plugin</artifactId>
-        <version>0.1-RC1</version>
+        <version>0.2-SNAPSHOT</version>
         <configuration>
           <messageIdPrefix>BLAM</messageIdPrefix>
           <messageIdOffset>200</messageIdOffset>
