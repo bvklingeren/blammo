@@ -1,0 +1,6 @@
+One Minute Introduction
+
+  The core package provides all classes and interfaces for interacting
+with the logging framework. It also contains some adapters for
+wrapping Blammo loggers around Log4j, JDK and other logging
+mechanisms.

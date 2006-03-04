@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<project>
+  <parent>
+    <artifactId>root</artifactId>
+    <groupId>com.agilejava.blammo</groupId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>blammo-adapters</artifactId> 
+  <name>Blammo Adapters</name> 
+  <description>Adapters of traditional low-level logging APIs.</description>
+</project>

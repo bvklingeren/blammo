@@ -1,0 +1,18 @@
+group resources;
+
+logger(logger) ::= <<
+$logger.events:event(); separator="\n"$
+>>
+
+event() ::= <<
+$logger.javaClass.package$.$it.identifier$=$it.messageParts:part()$
+>>
+
+part() ::= <<
+$if(it.reference)$
+{$it.parameterPosition$}
+$endif$
+$if(it.literal)$
+$it$
+$endif$
+>>

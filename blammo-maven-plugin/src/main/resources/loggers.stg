@@ -1,0 +1,77 @@
+group loggers;
+
+logger(logger, includeId) ::= <<
+package $logger.loggerPackage$;
+
+import java.util.ResourceBundle;
+import java.text.MessageFormat;
+
+import com.agilejava.blammo.BlammoLog;
+import com.agilejava.blammo.BlammoLogger;
+
+public class $logger.implementationName$ 
+  implements $logger.implementingClass$, BlammoLogger
+{
+
+  private ResourceBundle bundle;
+
+  private BlammoLog blammoLog;
+
+  public $logger.implementationName$() {
+    bundle = ResourceBundle.getBundle("$logger.resourceFileBase$");
+  }
+
+  public void setBlammoLog(BlammoLog blammoLog) {
+    this.blammoLog = blammoLog;
+  }
+
+  public BlammoLog getBlammoLog() {
+    return blammoLog;
+  }
+
+  $logger.events:event(); separator="\n\n"$
+
+}
+>>
+
+event() ::= <<
+public void $it.javaMethod.name$($it.javaMethod.parameters:parameterDef(); separator=", "$) {
+  String message = bundle.getString("$logger.javaClass.package$.$it.identifier$");
+  Object[] args = new Object[] { $it.javaMethod.parameters:parameterRef(); separator=", "$ };
+  message = MessageFormat.format(message, args);
+  $if (includeId)$
+  message = "$it.identifier$:" + message;
+  $endif$
+  $if (it.passingThrowable)$
+  blammoLog.log("$it.level$", message, $it.throwable.name$);
+  $else$
+  blammoLog.log("$it.level$", message);
+  $endif$
+}
+>>
+
+parameterDef() ::= <<
+$it.type$ $it.name$
+>>
+
+parameterRef() ::= <<
+$wrapBefore.(it.type.value)$$it.name$$wrapAfter.(it.type.value)$
+>>
+
+wrapBefore ::= [
+  "int":"new Integer(",
+  "long":"new Long(",
+  "short":"new Short(",
+  "boolean":"new Boolean(",
+  "byte":"new Boolean(",
+  default: ""
+]
+
+wrapAfter ::= [
+  "int":")",
+  "long":")",
+  "short":")",
+  "boolean":")",
+  "byte":")",
+  default: ""
+]

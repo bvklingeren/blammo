@@ -1,0 +1,75 @@
+One Minute Introduction
+
+ Blammo introduces a new way of logging. The general goal is to make
+ logging easy to do and easy to test, and at the same time, take it
+ seriously. Developers are normally not exposed to a Blammo based
+ API. Instead, they have to deal with annotations, some conventions
+ and common sense.
+
+ This project exists of a number of components. You may not be
+ interested in all of them, so here is an overview as a guide:
+
+ [{{{./blammo-core/index.html}Blammo Core}}] A very simple API, and some SPIs
+ for extending Blammo. (Note that your code will never use the core
+ API to log messages directly. Instead you can use the core API to
+ construct a dedicated logger from your own event definitions.)
+
+ [{{{./blammo-maven-plugin/index.html}Blammo Maven Plugin}}] A Maven plugin for
+ generating dedicated loggers from your logger interfaces. Note that
+ future versions of Blammo might include a mechanism to construct
+ these implementations at runtime, but since J2EE isn't particularly
+ happy with dynamic byte code generation, you will still need a
+ mechanism to generate implementation classes in a pre-compilation
+ phase.
+
+ [{{{./blammo-samples/index.html}Blammo Samples}}] A couple of examples showing
+ the relevance of tools like Blammo, and a message catalog example.
+
+ []
+
+ The figure shown below highlights the difference between ordinary
+ logging APIs and Blammo's logging API. If you are using traditional
+ logging API's, then there is a fair chance that your API resembles
+ the Log4j, JDK Logging or Commons Logging API. In fact, there is a
+ fair chance that you are dealing with these API's specifically.
+
+[../imgs/blammo.png] Overview
+
+ The figure shown above shows the interfaces that you would use. It
+ also displays the API that your code would use to log messages using
+ Blammo. It is the foo.bar.EventLogger interface. Note that - instead
+ of having a long list of all sorts of logging operations - this
+ interface merely has two operations. One to log divisions by
+ zero. And another one logging DataSource problems. This doesn't mean
+ you can only log DataSource or division by zero problems. Instead, it
+ means that you can basically can define the interface of your logger
+ in way that makes sense, and reflects its purpose.
+
+ Also note that the Blammo interface has typed operation
+ parameters. Instead of having operations accepting the formatted
+ message, and an array of untyped objects, Blammo is able to enforce
+ type checking. (This will effectively prevent Dates to be formatted
+ with non-Date formatting patterns.)
+
+ Using Blammo, you can basically define your logging API completely on
+ your own. The [{{{./blammo-maven-plugin/index.html}Blammo Maven
+ Plugin}}] mentioned above will generate the blue classes. The
+ responsibility of the 'blue classes' is to check if the message
+ should be logged at all, and if it should be logged, format the
+ message appropriately. This is the class that will take the messages
+ to log from a ResourceBundle, and substitute parts of the messages
+ with parameters send in via your own dedicated logging API.
+
+ Having said that, this is about where the responsibility of the 'blue
+ classes' end. It will not handle the message itself, but instead
+ pass the message on to a BlammoLog implementation. These BlammoLog
+ implementations adapt existing traditional logging API's to a fairly
+ limited interface used by the generated 'blue classes'.
+
+ Normally, ordinary mortals should not be dealing with these 'orange
+ classes' at all. In fact, they should not even worry about the 'blue
+ classes'. The only relevant class to worry about, is about your own
+ logging interface. Everything else is done by Blammo.
+  
+
+

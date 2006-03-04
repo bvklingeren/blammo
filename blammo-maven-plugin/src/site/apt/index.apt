@@ -1,0 +1,25 @@
+One Minute Introduction
+
+  Blammo will typically expect implementations of logger interfaces to
+be available on the classpath. The Blammo Maven plugin allows these
+implementations to be generated without any effort.
+
+* How does it work?
+
+  The Maven plugin will scan the directory containing the Java
+sources, looking for Java interfaces marked with the '@blammo.logger'
+annotation. It will take these interfaces, and generate an
+implementation class using the other @blammo annotations, as well as a
+properties file containing the actual messages.
+
+  * For every log message, the plugin will generate a method.
+
+  * This method will first of all call the underlying logging
+    mechanism (JDK, Log4j, ...) to find out if anything should be
+    logged at all.
+
+  * After that, it will compose the message by loading the message
+    from a ResourceBundle, and substitute variables in the message by
+    the values of parameters passed to the logging operation.
+
+
