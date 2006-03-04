@@ -6,7 +6,7 @@ package $logger.loggerPackage$;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
 
-import com.agilejava.blammo.BlammoLog;
+import com.agilejava.blammo.LoggingKitAdapter;
 import com.agilejava.blammo.BlammoLogger;
 
 public class $logger.implementationName$ 
@@ -15,18 +15,18 @@ public class $logger.implementationName$
 
   private ResourceBundle bundle;
 
-  private BlammoLog blammoLog;
+  private LoggingKitAdapter adapter;
 
   public $logger.implementationName$() {
     bundle = ResourceBundle.getBundle("$logger.resourceFileBase$");
   }
 
-  public void setBlammoLog(BlammoLog blammoLog) {
-    this.blammoLog = blammoLog;
+  public void setLoggingKitAdapter(LoggingKitAdapter adapter) {
+    this.adapter = adapter;
   }
 
-  public BlammoLog getBlammoLog() {
-    return blammoLog;
+  public LoggingKitAdapter getLoggingKitAdapter() {
+    return adapter;
   }
 
   $logger.events:event(); separator="\n\n"$
@@ -43,9 +43,9 @@ public void $it.javaMethod.name$($it.javaMethod.parameters:parameterDef(); separ
   message = "$it.identifier$:" + message;
   $endif$
   $if (it.passingThrowable)$
-  blammoLog.log("$it.level$", message, $it.throwable.name$);
+  adapter.log("$it.level$", message, $it.throwable.name$);
   $else$
-  blammoLog.log("$it.level$", message);
+  adapter.log("$it.level$", message);
   $endif$
 }
 >>

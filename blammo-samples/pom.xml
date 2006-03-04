@@ -14,7 +14,7 @@
     <dependency>
       <groupId>com.agilejava.blammo</groupId>
       <artifactId>blammo-core</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>${version}</version>
     </dependency>
     <dependency>
       <groupId>easymock</groupId>
@@ -50,7 +50,7 @@
       <plugin>
         <groupId>com.agilejava.blammo</groupId>
         <artifactId>blammo-maven-plugin</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>${version}</version>
         <configuration>
           <messageIdPrefix>BLAM</messageIdPrefix>
           <messageIdOffset>200</messageIdOffset>
@@ -64,13 +64,6 @@
           <linksource>true</linksource>
         </configuration>
       </plugin>
-      <!--
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>changelog-maven-plugin</artifactId>
-        <version>2.0-beta-2-SNAPSHOT</version>
-      </plugin>
-      -->
     </plugins>
   </reporting>
 </project>

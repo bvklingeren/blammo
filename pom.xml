@@ -16,6 +16,9 @@
     <module>blammo-maven-plugin</module>
     <module>blammo-samples</module>
   </modules>
+  <scm>
+    <developerConnection>scm:cvs:ext:springerw@cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
+  </scm>
   <distributionManagement>
     <site>
       <id>local</id>
