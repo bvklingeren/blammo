@@ -1,53 +1,27 @@
-<?xml version="1.0"?>
-<project>
+<?xml version="1.0" encoding="UTF-8"?><project>
   <parent>
     <artifactId>root</artifactId>
     <groupId>com.agilejava.blammo</groupId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1-RC1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>blammo-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
   <name>Maven Blamo Plug-in</name>
+  <version>0.1-RC1</version>
   <description>A Maven plug-in supporting the Blammo way of
   logging.</description>
   <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-project</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>qdox</groupId>
-      <artifactId>qdox</artifactId>
-      <version>1.5</version>
-    </dependency>
-    <dependency>
-      <groupId>antlr</groupId>
-      <artifactId>stringtemplate</artifactId>
-      <version>2.2</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>1.1</version>
-    </dependency>
-    <dependency>
-      <groupId>easymock</groupId>
-      <artifactId>easymock</artifactId>
-      <version>1.1</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -57,12 +31,17 @@
     <dependency>
       <groupId>com.agilejava.blammo</groupId>
       <artifactId>blammo-core</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>0.1-RC1</version>
     </dependency>
     <dependency>
-      <groupId>doxia</groupId>
-      <artifactId>doxia-sink-api</artifactId>
-      <version>1.0-alpha-5</version>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.reporting</groupId>
@@ -70,20 +49,35 @@
       <version>2.0</version>
     </dependency>
     <dependency>
+      <groupId>easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>1.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>antlr</groupId>
+      <artifactId>stringtemplate</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.maven.reporting</groupId>
       <artifactId>maven-reporting-impl</artifactId>
       <version>2.0</version>
     </dependency>
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.1</version>
+      <groupId>qdox</groupId>
+      <artifactId>qdox</artifactId>
+      <version>1.5</version>
+    </dependency>
+    <dependency>
+      <groupId>doxia</groupId>
+      <artifactId>doxia-sink-api</artifactId>
+      <version>1.0-alpha-5</version>
     </dependency>
   </dependencies>
   <reporting>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
         <version>2.0</version>
       </plugin>

@@ -1,57 +1,38 @@
-<?xml version="1.0"?>
-<project>
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <modelVersion>4.0.0</modelVersion>
   <groupId>com.agilejava.blammo</groupId>
   <artifactId>root</artifactId>
-  <version>0.1-SNAPSHOT</version>
-  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
   <name>Blammo Logging</name>
+  <version>0.1-RC1</version>
   <description>Blammo introduces a new way of logging. The general
   goal is to make logging easy to do and easy to test, and at the same
   time, take it seriously. Developers are normally not exposed to a
   Blammo based API. Instead, they have to deal with annotations, some
   conventions and common sense.</description>
-  <packaging>pom</packaging>
-  <modules>
-    <module>blammo-core</module>
-    <module>blammo-maven-plugin</module>
-    <module>blammo-samples</module>
-  </modules>
   <scm>
     <developerConnection>scm:cvs:ext:springerw@cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
   </scm>
-  <distributionManagement>
-    <site>
-      <id>local</id>
-      <name>Local Filesystem</name>
-      <url>scpexe://wilfred@localhost/home/wilfred/tmp/blammo-site</url>
-    </site>
-    <repository>
-      <id>repo1</id>
-      <name>Agilejava Repository</name>
-      <url>ftp://agilejava.com/www/maven</url>
-    </repository>
-  </distributionManagement>
   <build>
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
-         <artifactId>wagon-ssh-external</artifactId>
-         <version>1.0-alpha-6</version>
+        <artifactId>wagon-ssh-external</artifactId>
+        <version>1.0-alpha-6</version>
       </extension>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
-         <artifactId>wagon-ftp</artifactId>
-         <version>1.0-alpha-5</version>
+        <artifactId>wagon-ftp</artifactId>
+        <version>1.0-alpha-5</version>
       </extension>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
-         <artifactId>wagon-file</artifactId>
-         <version>1.0-alpha-6</version>
+        <artifactId>wagon-file</artifactId>
+        <version>1.0-alpha-6</version>
       </extension>
     </extensions>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <configuration>
           <templateDirectory>http://agilejava.com/maven/</templateDirectory>
@@ -60,4 +41,21 @@
       </plugin>
     </plugins>
   </build>
+  <modules>
+    <module>blammo-core</module>
+    <module>blammo-maven-plugin</module>
+    <module>blammo-samples</module>
+  </modules>
+  <distributionManagement>
+    <repository>
+      <id>repo1</id>
+      <name>Agilejava Repository</name>
+      <url>ftp://agilejava.com/www/maven</url>
+    </repository>
+    <site>
+      <id>local</id>
+      <name>Local Filesystem</name>
+      <url>scpexe://wilfred@localhost/home/wilfred/tmp/blammo-site</url>
+    </site>
+  </distributionManagement>
 </project>
