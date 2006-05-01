@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class Sample1 {
 
-	Logger logger = Logger.getLogger(this.getClass().getName());
+    Logger logger = Logger.getLogger(this.getClass().getName());
 
     public int div(int a, int b) {
         try {

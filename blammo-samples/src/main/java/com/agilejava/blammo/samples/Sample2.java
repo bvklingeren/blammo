@@ -2,7 +2,7 @@ package com.agilejava.blammo.samples;
 
 import java.util.logging.Logger;
 
-import com.agilejava.blammo.BlammoJdkLog;
+import com.agilejava.blammo.JdkLoggingKitAdapter;
 import com.agilejava.blammo.BlammoLoggerFactory;
 
 public class Sample2 {
@@ -10,7 +10,7 @@ public class Sample2 {
     private Logger logger = Logger.getLogger("Sample2");
 
     private EventLogger eventLogger = (EventLogger) BlammoLoggerFactory.create(
-            EventLogger.class, new BlammoJdkLog(logger));
+            EventLogger.class, new JdkLoggingKitAdapter(logger));
 
     public int div(int a, int b) {
         try {

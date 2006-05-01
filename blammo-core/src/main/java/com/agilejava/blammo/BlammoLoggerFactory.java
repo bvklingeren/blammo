@@ -53,7 +53,7 @@ public class BlammoLoggerFactory {
 	 *             interface.
 	 */
 	public static Object create(Class intf) throws BlammoException {
-		return create(intf, new BlammoStdErrLog());
+		return create(intf, new StdErrLoggingKitAdapter());
 	}
 
 	/**
