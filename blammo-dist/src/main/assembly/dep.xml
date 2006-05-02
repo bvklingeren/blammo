@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<assembly>
+  <id>bin</id>
+  <formats>
+    <format>tar.gz</format>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>../blammo-samples/src/main/java</directory>
+      <outputDirectory>samples</outputDirectory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/lib</outputDirectory>
+      <unpack>false</unpack>
+      <scope>runtime</scope>
+      <includes>
+        <include>com.agilejava.blammo:blammo-core</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>
+</assembly>
