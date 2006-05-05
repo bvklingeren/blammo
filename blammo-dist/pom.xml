@@ -27,6 +27,43 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>com.agilejava.docbkx</groupId>
+        <artifactId>docbkx-maven-plugin</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.4</version>
+            <scope>runtime</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.2</version>
+            <scope>runtime</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.3</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <includes>readme.xml</includes>
+          <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
+          <paperType>A4</paperType>
+          <ignoreImageScaling>1</ignoreImageScaling>
+          <!--
+          <sectionAutolabel>1</sectionAutolabel>
+          -->
+          <generateToc>
+/book toc
+          </generateToc>
+          <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
           <descriptor>src/main/assembly/dep.xml</descriptor>
