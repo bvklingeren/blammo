@@ -21,22 +21,23 @@ package com.agilejava.blammo.samples;
 import com.agilejava.blammo.BlammoLoggerFactory;
 
 /**
- * A simple example with a logger that can be changed.
+ * A simple example showing the how to use Maven Blammo. In this case, the
+ * <code>BlammoLoggerFactory</code> creates a logger using the default
+ * <code>LoggingKit</code>, but you can plug in other
+ * <code>LoggingKits</code> by passing other <code>LoggingKit</code>
+ * implementations.
+ * 
+ * Note that is possible to replace the <code>LoggingKit</code> at runtime. In
+ * fact, it may be worthwhile to add accessors for a private
+ * <code>LoggingKit</code> field, allowing you to reconfigure the logging
+ * mechanism using dependency injection mechanisms like Spring.
  * 
  * @author Wilfred Springer
  */
-public class Sample4 {
+public class Sample5 {
 
     private EventLogger eventLogger = (EventLogger) BlammoLoggerFactory
             .create(EventLogger.class);
-
-    public void setEventLogger(EventLogger eventLogger) {
-        this.eventLogger = eventLogger;
-    }
-
-    public EventLogger getEventLogger() {
-        return eventLogger;
-    }
 
     public int div(int a, int b) {
         try {
@@ -72,6 +73,25 @@ public class Sample4 {
          */
         void logUnexpectedDivisionException(int a, int b, ArithmeticException ae);
 
+    }
+
+    /**
+     * Returns the {@link EventLogger}.
+     * 
+     * @return The {@link EventLogger} used for logging events.
+     */
+    public EventLogger getLogger() {
+        return eventLogger;
+    }
+
+    /**
+     * Sets the {@link EventLogger}.
+     * 
+     * @param eventLogger
+     *            The {@link EventLogger} used for logging events.
+     */
+    public void setLogger(EventLogger eventLogger) {
+        this.eventLogger = eventLogger;
     }
 
 }

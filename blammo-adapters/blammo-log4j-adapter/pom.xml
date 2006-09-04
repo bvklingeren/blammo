@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.agilejava.blammo</groupId>
+    <artifactId>blammo-adapters</artifactId> 
+    <version>0.2-SNAPSHOT</version>
+  </parent>
+  <artifactId>blammo-log4j-adapter</artifactId>
+  <name>Blammo Log4j Adapter</name>
+  <dependencies>
+    <dependency>
+      <groupId>com.agilejava.blammo</groupId>
+      <artifactId>blammo-core</artifactId>
+      <version>${version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.13</version>
+    </dependency>
+  </dependencies>
+</project>

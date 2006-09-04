@@ -18,7 +18,6 @@ package com.agilejava.blammo;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 /**
  * The interface to be implemented by Blammo loggers, allowing us to plug in a
  * certain kind of {@link LoggingKitAdapter} to facilitate a particular way of
@@ -29,11 +28,11 @@ package com.agilejava.blammo;
  */
 public interface BlammoLogger {
 
-	/**
-	 * Sets the {@link LoggingKitAdapter} to be used by this logger.
-	 * 
-	 * @param log
-	 */
-	void setLoggingKitAdapter(LoggingKitAdapter log);
+    /**
+     * Sets the {@link LoggingKitAdapter} to be used by this logger.
+     * 
+     * @param log
+     */
+    void setLoggingKitAdapter(LoggingKitAdapter log);
 
 }

@@ -58,6 +58,7 @@
     <module>blammo-maven-plugin</module>
     <module>blammo-samples</module>
     <module>blammo-dist</module>
+    <module>blammo-adapters</module>
   </modules>
   <distributionManagement>
     <repository>

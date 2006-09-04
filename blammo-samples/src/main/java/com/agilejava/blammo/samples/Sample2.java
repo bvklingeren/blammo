@@ -36,43 +36,43 @@ import com.agilejava.blammo.BlammoLoggerFactory;
  */
 public class Sample2 {
 
-	private EventLogger eventLogger = (EventLogger) BlammoLoggerFactory
-			.create(EventLogger.class);
+    private EventLogger eventLogger = (EventLogger) BlammoLoggerFactory
+            .create(EventLogger.class);
 
-	public int div(int a, int b) {
-		try {
-			return a / b;
-		} catch (ArithmeticException ae) {
-			if (b == 0) {
-				eventLogger.logDivisionByZero(a);
-				return 0;
-			} else {
-				eventLogger.logUnexpectedDivisionException(a, b, ae);
-				throw ae;
-			}
-		}
-	}
+    public int div(int a, int b) {
+        try {
+            return a / b;
+        } catch (ArithmeticException ae) {
+            if (b == 0) {
+                eventLogger.logDivisionByZero(a);
+                return 0;
+            } else {
+                eventLogger.logUnexpectedDivisionException(a, b, ae);
+                throw ae;
+            }
+        }
+    }
 
-	/**
-	 * @blammo.logger
-	 */
-	public interface EventLogger {
+    /**
+     * @blammo.logger
+     */
+    public interface EventLogger {
 
-		/**
-		 * The application has attempted to divide something by zero, which is
-		 * impossible. This is a bug.
-		 * 
-		 * @blammo.level warn
-		 * @blammo.message Attempt to divide {a} by 0; returning 0 instead.
-		 */
-		void logDivisionByZero(int a);
+        /**
+         * The application has attempted to divide something by zero, which is
+         * impossible. This is a bug.
+         * 
+         * @blammo.level warn
+         * @blammo.message Attempt to divide {a} by 0; returning 0 instead.
+         */
+        void logDivisionByZero(int a);
 
-		/**
-		 * @blammo.level error
-		 * @blammo.message Failed to divide {a} by {b}.
-		 */
-		void logUnexpectedDivisionException(int a, int b, ArithmeticException ae);
+        /**
+         * @blammo.level error
+         * @blammo.message Failed to divide {a} by {b}.
+         */
+        void logUnexpectedDivisionException(int a, int b, ArithmeticException ae);
 
-	}
+    }
 
 }
