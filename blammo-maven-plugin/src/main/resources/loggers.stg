@@ -1,6 +1,6 @@
 group loggers;
 
-logger(logger, includeId) ::= <<
+logger(logger, includeId, renderClass, renderFunction) ::= <<
 package $logger.loggerPackage$;
 
 import java.util.ResourceBundle;
@@ -16,13 +16,20 @@ public class $logger.implementationName$
   private ResourceBundle bundle;
 
   private LoggingKitAdapter adapter;
+  
+  private Interceptor interceptor;
 
   public $logger.implementationName$() {
     bundle = ResourceBundle.getBundle("$logger.resourceFileBase$");
+    interceptor = new DefaultInterceptor();
   }
 
   public void setLoggingKitAdapter(LoggingKitAdapter adapter) {
     this.adapter = adapter;
+  }
+  
+  public void setInterceptor(Interceptor interceptor) {
+    this.interceptor = interceptor;
   }
 
   public LoggingKitAdapter getLoggingKitAdapter() {
@@ -36,16 +43,17 @@ public class $logger.implementationName$
 
 event() ::= <<
 public void $it.javaMethod.name$($it.javaMethod.parameters:parameterDef(); separator=", "$) {
-  String message = bundle.getString("$logger.javaClass.package$.$it.identifier$");
+  if (!interceptor.accepts("$it.identifier$", null, "$it.javaMethod.name$")) return;
+  String __message = bundle.getString("$logger.javaClass.package$.$it.identifier$");
   Object[] args = new Object[] { $it.javaMethod.parameters:parameterRef(); separator=", "$ };
-  message = MessageFormat.format(message, args);
+  __message = MessageFormat.format(__message, args);
   $if (includeId)$
-  message = "$it.identifier$:" + message;
+  __message = "$it.identifier$: " + __message;
   $endif$
   $if (it.passingThrowable)$
-  adapter.log("$it.level$", message, $it.throwable.name$);
+  adapter.log("$it.level$", __message, $it.throwable.name$);
   $else$
-  adapter.log("$it.level$", message);
+  adapter.log("$it.level$", __message);
   $endif$
 }
 >>
@@ -55,7 +63,11 @@ $it.type$ $it.name$
 >>
 
 parameterRef() ::= <<
+$if (renderClass)$
+$renderClass$.$renderFunction$($wrapBefore.(it.type.value)$$it.name$$wrapAfter.(it.type.value)$)
+$else$
 $wrapBefore.(it.type.value)$$it.name$$wrapAfter.(it.type.value)$
+$endif$
 >>
 
 wrapBefore ::= [
