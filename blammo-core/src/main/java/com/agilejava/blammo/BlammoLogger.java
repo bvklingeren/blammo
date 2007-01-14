@@ -35,4 +35,36 @@ public interface BlammoLogger {
      */
     void setLoggingKitAdapter(LoggingKitAdapter log);
 
+    /**
+     * Sets an interceptor for the events. Whereas {@link LoggingKitAdapter}s
+     * are expected to <em>always</em> log the event, interceptors can decide
+     * wether the event should be logged at all. Events are identified by id.
+     */
+    void setInterceptor(Interceptor interceptor);
+
+    public interface Interceptor {
+
+        /**
+         * Intercepts the event, and decides if it should be processed any
+         * further.
+         * 
+         * @param eventId The identifier of the event, if it exists. (Could be
+         *        <code>null</code>.)
+         * @param cl The class generating the event.
+         * @param method The method generating the event.
+         * @return A boolean indicating if this event should be accepted for
+         *         further processing.
+         */
+        boolean accepts(String eventId, Class cl, String method);
+
+    }
+    
+    public class DefaultInterceptor implements Interceptor {
+
+        public boolean accepts(String eventId, Class cl, String method) {
+            return true;
+        }
+        
+    }
+
 }

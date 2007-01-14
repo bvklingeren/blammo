@@ -18,7 +18,6 @@ package com.agilejava.blammo;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 /**
  * An implementation of the {@link LoggingKitAdapter} interface, logging all
  * messages to standard err.
@@ -27,13 +26,13 @@ package com.agilejava.blammo;
  */
 public class StdErrLoggingKitAdapter implements LoggingKitAdapter {
 
-	public void log(String level, String message) {
-		System.err.println(level + ": " + message);
-	}
+    public void log(String level, String message) {
+        System.err.println(level.toUpperCase() + ": " + message);
+    }
 
-	public void log(String level, String message, Throwable throwable) {
-		System.err.println(level + ": " + message);
-		throwable.printStackTrace(System.err);
-	}
+    public void log(String level, String message, Throwable throwable) {
+        System.err.println(level.toUpperCase() + ": " + message);
+        throwable.printStackTrace(System.err);
+    }
 
 }

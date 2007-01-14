@@ -29,6 +29,8 @@ public class BlammoTestLoggerImpl implements BlammoLogger {
 
 	private LoggingKitAdapter adapter;
 
+    private Interceptor interceptor;
+    
 	public void setLoggingKitAdapter(LoggingKitAdapter adapter) {
 		this.adapter = adapter;
 	}
@@ -36,5 +38,9 @@ public class BlammoTestLoggerImpl implements BlammoLogger {
 	public LoggingKitAdapter getLoggingKitAdapter() {
 		return adapter;
 	}
+
+    public void setInterceptor(Interceptor interceptor) {
+        this.interceptor = interceptor;
+    }
 	
 }

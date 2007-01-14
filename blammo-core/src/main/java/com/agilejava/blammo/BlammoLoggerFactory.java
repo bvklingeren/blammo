@@ -1,5 +1,8 @@
 package com.agilejava.blammo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /* 
  * Copyright (C) 2006, Wilfred Springer
  *
@@ -34,13 +37,11 @@ public class BlammoLoggerFactory {
      * to implement the {@link BlammoLogger} interface. Future versions of this
      * operation might delegate the naming strategy to another object.
      * 
-     * @param intf
-     *            The interface for which we need the implementation class.
+     * @param intf The interface for which we need the implementation class.
      * @return The Blammo generated implementation class of the logger interface
      *         defined by the user.
-     * @throws BlammoException
-     *             If the operation fails to load the implementation class from
-     *             the class path.
+     * @throws BlammoException If the operation fails to load the implementation
+     *         class from the class path.
      */
     private static Class getImplementationClass(Class intf)
             throws BlammoException {
@@ -63,12 +64,10 @@ public class BlammoLoggerFactory {
     /**
      * Creates a new logger for the interface passed in.
      * 
-     * @param intf
-     *            The interface specifying the logger interface.
+     * @param intf The interface specifying the logger interface.
      * @return An implementation of this interface.
-     * @throws BlammoException
-     *             If this operation fails to create an implementation of this
-     *             interface.
+     * @throws BlammoException If this operation fails to create an
+     *         implementation of this interface.
      */
     public static Object create(Class intf) throws BlammoException {
         return create(intf, new StdErrLoggingKitAdapter());
@@ -78,14 +77,11 @@ public class BlammoLoggerFactory {
      * Creates a new logger for the interface passed in, using the
      * {@link LoggingKit} to create a low level logging kit specific version.
      * 
-     * @param intf
-     *            The interface for which we need to construct a new logger.
-     * @param kit
-     *            An object representing a particular low level logging kit.
+     * @param intf The interface for which we need to construct a new logger.
+     * @param kit An object representing a particular low level logging kit.
      * @return A new logger, implementing the <code>intf</code> interface.
-     * @throws BlammoException
-     *             If this operation fails to create an implementation of this
-     *             interface.
+     * @throws BlammoException If this operation fails to create an
+     *         implementation of this interface.
      */
     public static Object create(Class intf, LoggingKit kit)
             throws BlammoException {
@@ -98,14 +94,12 @@ public class BlammoLoggerFactory {
      * {@link LoggingKitAdapter} to create a low level logging kit specific
      * version.
      * 
-     * @param intf
-     *            The interface for which we need to construct a new logger.
-     * @param adapter
-     *            An object representing a particular low level logging logger.
+     * @param intf The interface for which we need to construct a new logger.
+     * @param adapter An object representing a particular low level logging
+     *        logger.
      * @return A new logger, implementing the <code>intf</code> interface.
-     * @throws BlammoException
-     *             If this operation fails to create an implementation of this
-     *             interface.
+     * @throws BlammoException If this operation fails to create an
+     *         implementation of this interface.
      */
     public static Object create(Class intf, LoggingKitAdapter adapter)
             throws BlammoException {
@@ -120,4 +114,18 @@ public class BlammoLoggerFactory {
             throw new BlammoException(iae);
         }
     }
+    
+    /**
+     * Creates a new logger, using the {@link BlammoLogger.Interceptor}.
+     * 
+     * @param intf The interface for which we need to construct a new logger.
+     * @param interceptor The interceptor that gets the opportunity to veto
+     *        every message.
+     */
+    public static Object create(Class intf, BlammoLogger.Interceptor interceptor) {
+        BlammoLogger logger = (BlammoLogger) create(intf);
+        logger.setInterceptor(interceptor);
+        return logger;
+    }
+    
 }
