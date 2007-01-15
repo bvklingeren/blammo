@@ -20,7 +20,7 @@ public class $logger.implementationName$
   private Interceptor interceptor;
 
   public $logger.implementationName$() {
-    bundle = ResourceBundle.getBundle("$logger.resourceFileBase$");
+    bundle = ResourceBundle.getBundle("$logger.resourceFileBaseEscaped$");
     interceptor = new DefaultInterceptor();
   }
 

@@ -132,6 +132,10 @@ public class Logger {
     public String getResourceFileBase() {
         return getLoggerDir() + File.separatorChar + getBaseName();
     }
+    
+    public String getResourceFileBaseEscaped() {
+        return Escape.stringEscape(getResourceFileBase());
+    }
 
     public String getResourceFileName() {
         return getResourceFileBase() + ".properties";
