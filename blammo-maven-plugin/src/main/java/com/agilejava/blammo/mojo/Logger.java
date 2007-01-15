@@ -18,7 +18,6 @@ package com.agilejava.blammo.mojo;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +52,8 @@ public class Logger {
      * Sets a reference to the {@link JavaClass} providing metadata about the
      * interface that represents this logger.
      * 
-     * @param javaClass
-     *            The <code>JavaClass</code> providing metadata about the
-     *            interface that represents this logger.
+     * @param javaClass The <code>JavaClass</code> providing metadata about
+     *        the interface that represents this logger.
      */
     public void setJavaClass(JavaClass javaClass) {
         this.javaClass = javaClass;
@@ -75,8 +73,7 @@ public class Logger {
     /**
      * Adds a {@link LogEvent} to the Logger.
      * 
-     * @param event
-     *            The {@link LogEvent} to add to the list of events.
+     * @param event The {@link LogEvent} to add to the list of events.
      */
     public void addLogEvent(LogEvent event) {
         events.add(event);
@@ -85,8 +82,7 @@ public class Logger {
     /**
      * Sets the <code>List</code> of <code>LogEvent</code>s.
      * 
-     * @param events
-     *            The events to set.
+     * @param events The events to set.
      */
     public void setEvents(List events) {
         this.events = events;
@@ -132,7 +128,16 @@ public class Logger {
     public String getResourceFileBase() {
         return getLoggerDir() + File.separatorChar + getBaseName();
     }
-    
+
+    /**
+     * Returns the name of the resource. Resources names in Java <em>always</em>
+     * use forward slashes for 'directories' (java packages). This does not
+     * depend on the operating system.
+     */
+    public String getResourceName() {
+        return javaClass.getPackage().replace('.', '/') + '/' + getBaseName();
+    }
+
     public String getResourceFileBaseEscaped() {
         return Escape.stringEscape(getResourceFileBase());
     }
