@@ -15,6 +15,15 @@
     <developerConnection>scm:cvs:ext:springerw@cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
   </scm>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.agilejava.blammo</groupId>
+          <artifactId>blammo-maven-plugin</artifactId>
+          <version>${version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -72,4 +81,13 @@
       <url>scpexe://wilfred@localhost/home/wilfred/tmp/blammo-site</url>
     </site>
   </distributionManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.agilejava.blammo</groupId>
+        <artifactId>blammo-core</artifactId>
+        <version>${version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>

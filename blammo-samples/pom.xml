@@ -15,7 +15,6 @@
       <plugin>
         <groupId>com.agilejava.blammo</groupId>
         <artifactId>blammo-maven-plugin</artifactId>
-        <version>0.2-SNAPSHOT</version>
         <executions>
           <execution>
             <goals>
@@ -36,7 +35,6 @@
     <dependency>
       <groupId>com.agilejava.blammo</groupId>
       <artifactId>blammo-core</artifactId>
-      <version>0.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>easymock</groupId>
