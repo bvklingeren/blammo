@@ -12,7 +12,7 @@
   Blammo based API. Instead, they have to deal with annotations, some
   conventions and common sense.</description>
   <scm>
-    <developerConnection>scm:cvs:ext:springerw@cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
+    <developerConnection>scm:cvs:ext:springerw@blammo.cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
   </scm>
   <build>
     <pluginManagement>
