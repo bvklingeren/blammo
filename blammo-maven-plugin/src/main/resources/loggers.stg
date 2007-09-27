@@ -8,6 +8,7 @@ import java.text.MessageFormat;
 
 import com.agilejava.blammo.LoggingKitAdapter;
 import com.agilejava.blammo.BlammoLogger;
+import com.agilejava.blammo.MessageProducer;
 
 public class $logger.implementationName$ 
   implements $logger.implementingClass$, BlammoLogger
@@ -44,22 +45,27 @@ public class $logger.implementationName$
 event() ::= <<
 public void $it.javaMethod.name$($it.javaMethod.parameters:parameterDef(); separator=", "$) {
   if (!interceptor.accepts("$it.identifier$", null, "$it.javaMethod.name$")) return;
-  String __message = bundle.getString("$logger.javaClass.package$.$it.identifier$");
-  Object[] args = new Object[] { $it.javaMethod.parameters:parameterRef(); separator=", "$ };
-  __message = MessageFormat.format(__message, args);
-  $if (includeId)$
-  __message = "$it.identifier$: " + __message;
-  $endif$
+  final MessageProducer __producer = new MessageProducer() {
+    public String getMessage() {
+      String __message = bundle.getString("$logger.javaClass.package$.$it.identifier$");
+      Object[] args = new Object[] { $it.javaMethod.parameters:parameterRef(); separator=", "$ };
+      __message = MessageFormat.format(__message, args);
+      $if (includeId)$
+      __message = "$it.identifier$: " + __message;
+      $endif$
+      return __message;
+    }
+  };
   $if (it.passingThrowable)$
-  adapter.log("$it.level$", __message, $it.throwable.name$);
+  adapter.log("$it.level$", __producer, $it.throwable.name$);
   $else$
-  adapter.log("$it.level$", __message);
+  adapter.log("$it.level$", __producer);
   $endif$
 }
 >>
 
 parameterDef() ::= <<
-$it.type$ $it.name$
+final $it.type$ $it.name$
 >>
 
 parameterRef() ::= <<
