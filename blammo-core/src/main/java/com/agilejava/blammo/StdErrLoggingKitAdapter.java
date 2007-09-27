@@ -26,13 +26,13 @@ package com.agilejava.blammo;
  */
 public class StdErrLoggingKitAdapter implements LoggingKitAdapter {
 
-    public void log(String level, String message) {
-        System.err.println(level.toUpperCase() + ": " + message);
-    }
+	public void log(String level, MessageProducer producer) {
+		System.err.println(level.toUpperCase() + ": " + producer.getMessage());
+	}
 
-    public void log(String level, String message, Throwable throwable) {
-        System.err.println(level.toUpperCase() + ": " + message);
-        throwable.printStackTrace(System.err);
-    }
+	public void log(String level, MessageProducer producer, Throwable throwable) {
+		System.err.println(level.toUpperCase() + ": " + producer.getMessage());
+		throwable.printStackTrace(System.err);
+	}
 
 }

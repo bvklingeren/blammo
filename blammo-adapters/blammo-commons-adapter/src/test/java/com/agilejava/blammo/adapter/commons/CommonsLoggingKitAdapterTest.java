@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.easymock.EasyMock;
 
 import com.agilejava.blammo.LoggingKitAdapter;
+import com.agilejava.blammo.MessageProducer;
 
 import junit.framework.TestCase;
 
@@ -12,40 +13,46 @@ public class CommonsLoggingKitAdapterTest extends TestCase {
     private Log log;
 
     private LoggingKitAdapter adapter;
+    
+    private MessageProducer producer;
 
     public void setUp() {
         log = (Log) EasyMock.createMock(Log.class);
         adapter = new CommonsLoggingKitAdapter(log);
+        producer = (MessageProducer) EasyMock.createMock(MessageProducer.class);
     }
 
     public void testLogMessageOnly() {
-        adapter.log(LoggingKitAdapter.LEVEL_DEBUG, "test1");
-        adapter.log(LoggingKitAdapter.LEVEL_ERROR, "test2");
-        adapter.log(LoggingKitAdapter.LEVEL_INFO, "test3");
-        adapter.log(LoggingKitAdapter.LEVEL_WARN, "test4");
+        log.debug("message");
+        log.error("message");
+        log.info("message");
+        log.warn("message");
+        EasyMock.expect(producer.getMessage()).andReturn("message").times(4);
         EasyMock.replay(log);
-        log.debug("test1");
-        log.error("test2");
-        log.info("test3");
-        log.warn("test4");
+        EasyMock.replay(producer);
+        adapter.log(LoggingKitAdapter.LEVEL_DEBUG, producer);
+        adapter.log(LoggingKitAdapter.LEVEL_ERROR, producer);
+        adapter.log(LoggingKitAdapter.LEVEL_INFO, producer);
+        adapter.log(LoggingKitAdapter.LEVEL_WARN, producer);
         EasyMock.verify(log);
+        EasyMock.verify(producer);
     }
 
     public void testLogMessageAndThrowable() {
-        Throwable throwable1 = new Throwable("test1");
-        Throwable throwable2 = new Throwable("test2");
-        Throwable throwable3 = new Throwable("test3");
-        Throwable throwable4 = new Throwable("test4");
-        adapter.log(LoggingKitAdapter.LEVEL_DEBUG, "test1", throwable1);
-        adapter.log(LoggingKitAdapter.LEVEL_ERROR, "test2", throwable2);
-        adapter.log(LoggingKitAdapter.LEVEL_INFO, "test3", throwable3);
-        adapter.log(LoggingKitAdapter.LEVEL_WARN, "test4", throwable4);
+    	Throwable throwable = new Throwable("whatever");
+        log.debug("message", throwable);
+        log.error("message", throwable);
+        log.info("message", throwable);
+        log.warn("message", throwable);
+        EasyMock.expect(producer.getMessage()).andReturn("message").times(4);
         EasyMock.replay(log);
-        log.debug("test1", throwable1);
-        log.error("test2", throwable2);
-        log.info("test3", throwable3);
-        log.warn("test4", throwable4);
+        EasyMock.replay(producer);
+        adapter.log(LoggingKitAdapter.LEVEL_DEBUG, producer, throwable);
+        adapter.log(LoggingKitAdapter.LEVEL_ERROR, producer, throwable);
+        adapter.log(LoggingKitAdapter.LEVEL_INFO, producer, throwable);
+        adapter.log(LoggingKitAdapter.LEVEL_WARN, producer, throwable);
         EasyMock.verify(log);
+        EasyMock.verify(producer);
     }
 
 }

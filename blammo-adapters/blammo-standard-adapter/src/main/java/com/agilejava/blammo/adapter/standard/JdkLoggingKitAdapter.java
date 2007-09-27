@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.agilejava.blammo.LoggingKitAdapter;
+import com.agilejava.blammo.MessageProducer;
 
 /**
  * A <code>BlammoLog</code> implementation wrapping the standard Java logging
@@ -33,17 +34,17 @@ public class JdkLoggingKitAdapter implements LoggingKitAdapter {
         }
     }
 
-    public void log(String level, String message) {
+    public void log(String level, MessageProducer producer) {
         Level logLevel = getLevel(level);
         if (logger.isLoggable(logLevel)) {
-            logger.log(logLevel, message);
+            logger.log(logLevel, producer.getMessage());
         }
     }
 
-    public void log(String level, String message, Throwable throwable) {
+    public void log(String level, MessageProducer producer, Throwable throwable) {
         Level logLevel = getLevel(level);
         if (logger.isLoggable(logLevel)) {
-            logger.log(logLevel, message, throwable);
+            logger.log(logLevel, producer.getMessage(), throwable);
         }
     }
 

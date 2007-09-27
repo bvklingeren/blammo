@@ -9,13 +9,13 @@ import java.util.logging.Logger;
  * @author Wilfred Springer
  */
 public class BlammoJdkLog implements LoggingKitAdapter {
-	
+
 	private Logger logger;
-	
+
 	public BlammoJdkLog(Logger logger) {
 		this.logger = logger;
 	}
-	
+
 	private Level getLevel(String level) {
 		if (LoggingKitAdapter.LEVEL_DEBUG.equals(level)) {
 			return Level.FINE;
@@ -30,19 +30,18 @@ public class BlammoJdkLog implements LoggingKitAdapter {
 		}
 	}
 
-	public void log(String level, String message) {
+	public void log(String level, MessageProducer producer) {
 		Level logLevel = getLevel(level);
 		if (logger.isLoggable(logLevel)) {
-			logger.log(logLevel, message);
+			logger.log(logLevel, producer.getMessage());
 		}
-    }
+	}
 
-	public void log(String level, String message, Throwable throwable) {
+	public void log(String level, MessageProducer producer, Throwable throwable) {
 		Level logLevel = getLevel(level);
 		if (logger.isLoggable(logLevel)) {
-			logger.log(logLevel, message, throwable);
+			logger.log(logLevel, producer.getMessage(), throwable);
 		}
-    }
-	
+	}
 
 }

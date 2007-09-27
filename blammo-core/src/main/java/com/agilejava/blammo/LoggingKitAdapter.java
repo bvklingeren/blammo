@@ -18,7 +18,6 @@ package com.agilejava.blammo;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 /**
  * The interface to be implemented by all logging toolkit adapters. (Think of it
  * as a rudimentary interface similar to Commons Logging, without the
@@ -27,7 +26,7 @@ package com.agilejava.blammo;
  * @author Wilfred Springer
  */
 public interface LoggingKitAdapter {
-	
+
 	/**
 	 * The INFO log level.
 	 */
@@ -55,10 +54,10 @@ public interface LoggingKitAdapter {
 	 *            The log level. (Either {@link #LEVEL_DEBUG},
 	 *            {@link #LEVEL_ERROR}, {@link #LEVEL_INFO} or
 	 *            {@link #LEVEL_WARN}).
-	 * @param message
-	 *            The message to be logged.
+	 * @param producer
+	 *            The {@link MessageProducer} producing the message.
 	 */
-	void log(String level, String message);
+	void log(String level, MessageProducer producer);
 
 	/**
 	 * Logs the message, passing in the log level, the message and the
@@ -69,10 +68,10 @@ public interface LoggingKitAdapter {
 	 *            {@link #LEVEL_ERROR}, {@link #LEVEL_INFO} or
 	 *            {@link #LEVEL_WARN}).
 	 * @param message
-	 *            The message to be logged.
+	 *            The {@link MessageProducer} producing the message.
 	 * @param throwable
 	 *            The associated exception.
 	 */
-	void log(String level, String message, Throwable throwable);
+	void log(String level, MessageProducer producer, Throwable throwable);
 
 }

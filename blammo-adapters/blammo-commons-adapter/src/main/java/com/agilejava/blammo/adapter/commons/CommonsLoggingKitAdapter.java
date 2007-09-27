@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.agilejava.blammo.LoggingKitAdapter;
+import com.agilejava.blammo.MessageProducer;
 
 /**
  * A {@link LoggingKitAdapter} wrapper of a {@link Log} instance.
@@ -22,27 +23,27 @@ public class CommonsLoggingKitAdapter implements LoggingKitAdapter {
         this.log = log;
     }
 
-    public void log(String level, String message) {
+    public void log(String level, MessageProducer producer) {
         if (LoggingKitAdapter.LEVEL_DEBUG.equals(level)) {
-            log.debug(message);
+            log.debug(producer.getMessage());
         } else if (LoggingKitAdapter.LEVEL_ERROR.equals(level)) {
-            log.error(message);
+            log.error(producer.getMessage());
         } else if (LoggingKitAdapter.LEVEL_INFO.equals(level)) {
-            log.info(message);
+            log.info(producer.getMessage());
         } else if (LoggingKitAdapter.LEVEL_WARN.equals(level)) {
-            log.warn(message);
+            log.warn(producer.getMessage());
         }
     }
 
-    public void log(String level, String message, Throwable throwable) {
+    public void log(String level, MessageProducer producer, Throwable throwable) {
         if (LoggingKitAdapter.LEVEL_DEBUG.equals(level)) {
-            log.debug(message, throwable);
+            log.debug(producer.getMessage(), throwable);
         } else if (LoggingKitAdapter.LEVEL_ERROR.equals(level)) {
-            log.error(message, throwable);
+            log.error(producer.getMessage(), throwable);
         } else if (LoggingKitAdapter.LEVEL_INFO.equals(level)) {
-            log.info(message, throwable);
+            log.info(producer.getMessage(), throwable);
         } else if (LoggingKitAdapter.LEVEL_WARN.equals(level)) {
-            log.warn(message, throwable);
+            log.warn(producer.getMessage(), throwable);
         }
     }
 
