@@ -14,6 +14,17 @@
   <scm>
     <developerConnection>scm:cvs:ext:springerw@blammo.cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
   </scm>
+  <developers>
+    <developer>
+      <id>springerw</id>
+      <name>Wilfred Springer</name>
+      <roles>
+        <role>inventor</role>
+        <role>developer</role>
+        <role>janitor</role>
+      </roles>
+    </developer>
+  </developers>
   <build>
     <pluginManagement>
       <plugins>
