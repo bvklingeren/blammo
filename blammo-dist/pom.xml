@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.agilejava.blammo</groupId>
-    <artifactId>root</artifactId>
+    <artifactId>blammo</artifactId>
     <version>0.2-SNAPSHOT</version>
   </parent>
   <artifactId>blammo-dist</artifactId>

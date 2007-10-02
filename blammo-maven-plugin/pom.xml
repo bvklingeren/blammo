@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project>
   <parent>
-    <artifactId>root</artifactId>
+    <artifactId>blammo</artifactId>
     <groupId>com.agilejava.blammo</groupId>
     <version>0.2-SNAPSHOT</version>
   </parent>

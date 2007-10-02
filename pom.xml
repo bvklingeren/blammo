@@ -2,7 +2,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.agilejava.blammo</groupId>
-  <artifactId>root</artifactId>
+  <artifactId>blammo</artifactId>
   <packaging>pom</packaging>
   <name>Blammo Logging</name>
   <version>0.2-SNAPSHOT</version>
@@ -12,8 +12,9 @@
   Blammo based API. Instead, they have to deal with annotations, some
   conventions and common sense.</description>
   <scm>
-    <developerConnection>scm:cvs:ext:springerw@blammo.cvs.sourceforge.net:/cvsroot/blammo:blammo</developerConnection>
+    <developerConnection>scm:cvs:ext:springerw@blammo.cvs.sourceforge.net:/cvsblammo/blammo:blammo</developerConnection>
   </scm>
+  <url>http://blammo.sourceforge.net/</url>
   <developers>
     <developer>
       <id>springerw</id>
@@ -70,7 +71,7 @@
     <site>
       <id>blammo-sourceforge</id>
       <name>Blammo Site</name>
-      <url>scpexe://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs/</url>
+      <url>scpexe://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs</url>
     </site>
   </distributionManagement>
   <dependencyManagement>
