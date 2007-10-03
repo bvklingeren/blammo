@@ -61,17 +61,17 @@
     <repository>
       <id>blammo-sourceforge</id>
       <name>Blammo Repository</name>
-      <url>scpexe://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs/repository</url>
+      <url>scp://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs/repository</url>
     </repository>
     <snapshotRepository>
       <id>blammo-sourceforge</id>
       <name>Blammo Snapshot Repository</name>
-      <url>scpexe://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs/snapshots</url>
+      <url>scp://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs/snapshots</url>
     </snapshotRepository>
     <site>
       <id>blammo-sourceforge</id>
       <name>Blammo Site</name>
-      <url>scpexe://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs</url>
+      <url>scp://shell.sourceforge.net/home/groups/b/bl/blammo/htdocs</url>
     </site>
   </distributionManagement>
   <dependencyManagement>

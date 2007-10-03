@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project name="Blammo">
+  <skin>
+    <groupId>com.agilejava.blammo</groupId>
+    <artifactId>blammo-skin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </skin>
+
+  <body>
+
+    <menu ref="modules"/>
+    <menu ref="reports"/>
+    
+  </body>
+
+</project>
