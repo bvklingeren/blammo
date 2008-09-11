@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="/home/wilfred"
+   sodipodi:docname="log-blammo.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/wilfred/workspace/blammo/src/site/resources/blammo.png"
+   inkscape:export-xdpi="39.02"
+   inkscape:export-ydpi="39.02">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="594"
+     inkscape:cy="399"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1400"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="47" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path2227"
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:8.661;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 221.828,470.04265 C 222.12271,473.74633 225.35287,471.601 225.9949,469.71107 C 227.73477,464.58948 224.19755,458.99234 220.84832,457.7311 C 214.85733,455.47505 209.84848,462.8095 209.32726,471.03738 C 208.56236,483.11212 215.86553,493.45617 223.78734,494.66574 C 234.34589,496.27791 242.56441,483.32646 242.66256,468.38476 C 242.78606,449.58214 231.35706,434.05834 218.88898,433.10801 C 203.78845,431.95702 192.27156,450.71339 192.65961,472.3637 C 193.11691,497.87782 208.7356,518.64865 225.74669,519.28883 C 245.38668,520.02796 260.22551,495.4166 259.3302,467.05845 C 258.31289,434.83611 238.48253,408.79455 216.92962,408.48491 C 192.75052,408.13755 174.57979,438.62436 175.99196,473.69001 C 177.55973,512.61954 205.67116,542.6691 231.70604,540.91193 C 261.80013,538.88079 260.48276,533.58383 299,530.375 C 315.11543,520.38343 324.10638,503.71711 327.5,485.71875 L 304,483.375 L 328.40625,479.3125 C 332.54093,443.09579 315.15135,404.0148 287,403.375 C 287,403.375 266,410.375 218,408.375"
+       sodipodi:nodetypes="csssssssssssscccccc"
+       inkscape:export-xdpi="39.02"
+       inkscape:export-ydpi="39.02"
+       inkscape:export-filename="/home/wilfred/workspace/blammo/src/site/resources/blammo.png" />
+  </g>
+</svg>
