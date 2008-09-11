@@ -18,7 +18,6 @@ package com.agilejava.blammo.mojo;
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -106,6 +105,7 @@ public class LogEvent {
      *             If the message format is a problem.
      */
     public void parseMessage(String message) throws LogMessageFormatException {
+        message = cleanUp(message);
         int prev = 0;
         int cur = 0;
         messageParts = new ArrayList();
@@ -138,6 +138,31 @@ public class LogEvent {
         if (prev < message.length()) {
             messageParts.add(new LiteralPart(message.substring(prev)));
         }
+    }
+
+    /**
+     * Replaces sequences of whitespace with a single space character.
+     * 
+     * @param text The text to be cleaned up.
+     * @return The cleaned up version.
+     */
+    public static String cleanUp(String text) {
+        StringBuilder builder = new StringBuilder();
+        boolean previousWasWhitespace = false;
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            boolean currentIsWhitespace = Character.isWhitespace(c);
+            if (currentIsWhitespace) {
+                if (!previousWasWhitespace) {
+                    builder.append(' ');
+                }
+                previousWasWhitespace = true;
+            } else {
+                builder.append(c);
+                previousWasWhitespace = false;
+            }
+        }
+        return builder.toString();
     }
 
     /**
