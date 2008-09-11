@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.agilejava.blammo</groupId>
     <artifactId>blammo-adapters</artifactId> 
-    <version>0.3-SNAPSHOT</version>
+    <version>0.3</version>
   </parent>
   <artifactId>blammo-standard-adapter</artifactId>
   <name>Blammo Standard Java Logger Adapter</name>
